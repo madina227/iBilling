@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../assets/Strings.dart';
 import '../../../../assets/colors.dart';
 import '../../../../assets/icons.dart';

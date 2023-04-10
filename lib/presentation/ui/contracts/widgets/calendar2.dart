@@ -1,6 +1,7 @@
 import 'dart:core';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:i_billing/assets/Strings.dart';
 import 'package:i_billing/assets/colors.dart';
 import 'package:i_billing/presentation/bloc/calendar/calendar_bloc.dart';
 import 'package:i_billing/presentation/bloc/calendar/calendar_event.dart';
@@ -19,9 +20,6 @@ class MyCalendar extends StatefulWidget {
 class _MyCalendarState extends State<MyCalendar> {
   bool isContractSelected = false;
   bool isInvoiceSelected = false;
-  int selectedIndex = Jiffy.now().date - 1;
-  final daysInMonth = DateUtils.getDaysInMonth(
-      Jiffy.now().year, Jiffy.now().month); //qaysi oyda nechi kunligi =30
 
   late MainBloc _bloc;
   late CalendarBloc _cBloc;
@@ -89,7 +87,6 @@ class _MyCalendarState extends State<MyCalendar> {
                   child: Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      ////////////////////////////////////////////////////////////
                       children: List.generate(state.week.length, (index) {
                         return GestureDetector(
                           onTap: () {
@@ -101,11 +98,6 @@ class _MyCalendarState extends State<MyCalendar> {
                                     state.month, state.week[index].day)).millisecondsSinceEpoch /
                                         1000)
                                     .ceil();
-                            print("startTime $startTime");
-                            // setState(() {
-                            //   startTime = state.currentDate.millisecondsSinceEpoch /1000)
-                            //       .ceil();
-                            // });
                             endTime = startTime + 86400;
                             _bloc.add(FiltrContractsWithDateEvent(
                                 startTime, endTime,
@@ -191,7 +183,7 @@ class _MyCalendarState extends State<MyCalendar> {
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                     child: const Text(
-                      "Contracts",
+                      contractsText,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 15,
@@ -226,7 +218,7 @@ class _MyCalendarState extends State<MyCalendar> {
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                     child: const Text(
-                      "Invoice",
+                      invoiceText,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 15,

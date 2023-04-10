@@ -52,4 +52,6 @@ const graficDesText = 'Graphic designer • IQ Education';
 const date2Text = '16.09.2001';
 const phone2Text = '+998 97 721 06 88';
 const mail2Text = 'predatorhunter041@gmail.com';
+const deleteContractText = 'Delete contract';
+const backText = 'Back';
 // const paidText = 'Paid';

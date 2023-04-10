@@ -72,8 +72,6 @@ class _ContractsScreenState extends State<ContractsScreen> {
       body: Column(
         children:  const [
           MyCalendar(),
-          // Text((Jiffy.now().dateTime.day -Jiffy.now().dayOfWeek+2).toString()),testga
-          // ContractOrInvoice(),
           Expanded(
             flex: 1,
             child: Padding(

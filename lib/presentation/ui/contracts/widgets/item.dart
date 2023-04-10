@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:i_billing/data/source/remote/model/user_contract.dart';
 import 'package:jiffy/jiffy.dart';
-
 import '../../../../assets/Strings.dart';
 import '../../../../assets/colors.dart';
 import '../../../../assets/icons.dart';

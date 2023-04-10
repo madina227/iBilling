@@ -25,16 +25,10 @@ class _DeleteDialogState extends State<DeleteDialog> {
     super.dispose();
   }
 
-  void _printLatestValue() {
-    print('aaaaaaaaaaaaaaaaaaaa: ${myController.text}');
-    // if state event length dan kotta bosa add bloc
-  }
-
   @override
   void initState() {
     _bloc = BlocProvider.of<MainBloc>(context);
     super.initState();
-    myController.addListener(_printLatestValue);
   }
 
   @override
@@ -63,12 +57,10 @@ class _DeleteDialogState extends State<DeleteDialog> {
                 child: SizedBox(
                   // height: 56,
                   child: TextFormField(
-                    controller: myController, //////////////////
+                    controller: myController,
                     // onChanged: ,
                     minLines: 1,
-                    maxLines: null, // Set this
-                    // expands: true, // and this
-                    // keyboardType: TextInputType.multiline,
+                    maxLines: null,
                     decoration: InputDecoration(
                       // isDense: false,
                       contentPadding: const EdgeInsets.symmetric(
@@ -84,19 +76,7 @@ class _DeleteDialogState extends State<DeleteDialog> {
                     ),
                   ),
                 )
-
-                // DialogOption(
-                //   icon: contractIcon,
-                //   text: contractText,
-                //   onTap: () {
-                //     Navigator.pushReplacement(
-                //         context,
-                //         MaterialPageRoute(
-                //             builder: (context) => const NewContractScreen()));
-                //   },
-                // ),
                 ),
-            // _name.length>3?
             const SizedBox(
               height: 16,
             ),

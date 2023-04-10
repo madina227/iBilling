@@ -12,9 +12,6 @@ class AppApi {
 //get all contracts
   Future<List<UserContractData>> contracts() async {
     final response = await _apiBase.dio.get('/contracts');
-    // print('dataa from api ${response.data}');
-    // print('dataa from api2 ${response.data.map((e) =>
-    //     UserContractData.fromJson(e))}');
     return List<UserContractData>.from(
         response.data.map((e) => UserContractData.fromJson(e)));
   }

@@ -176,7 +176,7 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                       ),
                     ),
                     child: Text(
-                      'Delete contract',
+                      deleteContractText,
                       style: TextStyle(
                           color: red,
                           fontSize: 14,
@@ -197,7 +197,7 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                       ),
                     ),
                     child: const Text(
-                      'Back',
+                      backText,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 14,

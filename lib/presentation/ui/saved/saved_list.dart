@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:i_billing/assets/Strings.dart';
-import 'package:i_billing/data/source/remote/model/user_contract.dart';
 import 'package:i_billing/presentation/bloc/main_bloc/main_bloc.dart';
 import 'package:i_billing/presentation/ui/contracts/widgets/item.dart';
 import 'package:i_billing/presentation/ui/contracts/widgets/place_holder.dart';
-import 'package:jiffy/jiffy.dart';
-
 import '../../../../assets/colors.dart';
-import '../../../../assets/icons.dart';
-import '../../../../data/source/remote/model/user_data.dart';
 import '../../bloc/main_bloc/main_state.dart';
 
 class SavedList extends StatefulWidget {

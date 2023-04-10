@@ -21,7 +21,6 @@ class CalendarBloc extends Bloc<CalendarEvent, CalendarState> {
       firstWeekDay = Jiffy.now().startOf(Unit.week).date; //dushanba sanasi
       dateOfWeek.clear();
       for (int i = firstWeekDay; i < firstWeekDay + 7; i++) {
-        // print(i);
         dateOfWeek.add(Date(i,
             Jiffy.parseFromDateTime(DateTime(currentYear, currentMonth, i)).E));
       }

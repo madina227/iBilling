@@ -3,7 +3,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:i_billing/assets/Strings.dart';
 import 'package:i_billing/presentation/bloc/filter_bloc/filer_event.dart';
 import 'package:jiffy/jiffy.dart';
-
 import '../../../../assets/colors.dart';
 import '../../../bloc/filter_bloc/filter_bloc.dart';
 
@@ -52,14 +51,11 @@ class _FilterHeadState extends State<FilterHead> {
         firstDate: DateTime(2022),
         lastDate: DateTime(2024));
 
-    // if (pickedDate != null && pickedDate != currentDate) {
     if(pickedDate!=null){
       _filterBloc.add(ChooseStartDateEvent((pickedDate.millisecondsSinceEpoch/1000).ceil()));
     }
     setState(() {
-      // currentDate = pickedDate;
       from = Jiffy.parseFromDateTime(pickedDate!).format(pattern: 'dd.MM.yyyy');
-      // _bloc.add(FilterContractsEvent(statuses: statuses, startTime: startTime, endTime: endTime))
     });
     // }
   }
@@ -90,9 +86,7 @@ class _FilterHeadState extends State<FilterHead> {
     if(pickedDate!=null){
       _filterBloc.add(ChooseEndDateEvent((pickedDate.millisecondsSinceEpoch/1000).ceil()));
     }
-    // if (pickedDate != null && pickedDate != currentDate) {
     setState(() {
-      // currentDate = pickedDate;
       to = Jiffy.parseFromDateTime(pickedDate!).format(pattern: 'dd.MM.yyyy');
     });
     // }

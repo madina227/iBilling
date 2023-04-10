@@ -23,101 +23,101 @@ class MainContainer extends StatefulWidget {
 class _MainContainerState extends State<MainContainer> {
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(systemNavigationBarColor: darkest,));
-    return Scaffold(
-        bottomNavigationBar: BlocBuilder<NavBarBloc, NavBarState>(
-          builder: (context, state) {
-            return BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              currentIndex: state.index,
-              showUnselectedLabels: true,
-              backgroundColor: darkest,
-              selectedItemColor: selectedColor,
-              unselectedItemColor: unselectedColor,
-              items: [
-                BottomNavigationBarItem(
-                  icon: state.navbarItems == NavbarItems.contracts
-                      ? contractsBoldIcon
-                      : contractsOutlIcon,
-                  label: contractsText,
-                ),
-                BottomNavigationBarItem(
-                  icon: state.navbarItems == NavbarItems.history
-                      ? historyBoldIcon
-                      : historyOutlIcon,
-                  label: historyText,
-                ),
-                BottomNavigationBarItem(
-                  icon: state.navbarItems == NavbarItems.neW
-                      ? newBoldIcon
-                      : newOutlIcon,
-                  label: newText,
-                ),
-                BottomNavigationBarItem(
-                  icon: state.navbarItems == NavbarItems.saved
-                      ? bookmarkBoldIcon
-                      : bookmarkOutlIcon,
-                  label: savedText,
-                ),
-                BottomNavigationBarItem(
-                  icon: state.navbarItems == NavbarItems.profile
-                      ? profileBoldIcon
-                      : profileOutlIcon,
-                  label: profileText,
-                ),
-              ],
-              onTap: (index) {
-                switch (index) {
-                  case 0:
-                    {
-                      BlocProvider.of<NavBarBloc>(context)
-                          .getNavBarItem(NavbarItems.contracts);
-                    }
-                    break;
-                  case 1:
-                    {
-                      BlocProvider.of<NavBarBloc>(context)
-                          .getNavBarItem(NavbarItems.history);
-                    }
-                    break;
-                  case 2:
-                    {
-                      BlocProvider.of<NavBarBloc>(context)
-                          .getNavBarItem(NavbarItems.neW);
-                    }
-                    break;
-                  case 3:
-                    {
-                      BlocProvider.of<NavBarBloc>(context)
-                          .getNavBarItem(NavbarItems.saved);
-                    }
-                    break;
-                  case 4:
-                    {
-                      BlocProvider.of<NavBarBloc>(context)
-                          .getNavBarItem(NavbarItems.profile);
-                    }
-                    break;
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      systemNavigationBarColor: darkest,
+    ));
+    return Scaffold(bottomNavigationBar: BlocBuilder<NavBarBloc, NavBarState>(
+      builder: (context, state) {
+        return BottomNavigationBar(
+          type: BottomNavigationBarType.fixed,
+          currentIndex: state.index,
+          showUnselectedLabels: true,
+          backgroundColor: darkest,
+          selectedItemColor: selectedColor,
+          unselectedItemColor: unselectedColor,
+          items: [
+            BottomNavigationBarItem(
+              icon: state.navbarItems == NavbarItems.contracts
+                  ? contractsBoldIcon
+                  : contractsOutlIcon,
+              label: contractsText,
+            ),
+            BottomNavigationBarItem(
+              icon: state.navbarItems == NavbarItems.history
+                  ? historyBoldIcon
+                  : historyOutlIcon,
+              label: historyText,
+            ),
+            BottomNavigationBarItem(
+              icon: state.navbarItems == NavbarItems.neW
+                  ? newBoldIcon
+                  : newOutlIcon,
+              label: newText,
+            ),
+            BottomNavigationBarItem(
+              icon: state.navbarItems == NavbarItems.saved
+                  ? bookmarkBoldIcon
+                  : bookmarkOutlIcon,
+              label: savedText,
+            ),
+            BottomNavigationBarItem(
+              icon: state.navbarItems == NavbarItems.profile
+                  ? profileBoldIcon
+                  : profileOutlIcon,
+              label: profileText,
+            ),
+          ],
+          onTap: (index) {
+            switch (index) {
+              case 0:
+                {
+                  BlocProvider.of<NavBarBloc>(context)
+                      .getNavBarItem(NavbarItems.contracts);
                 }
-              },
-            );
-          },
-        ),
-        body: BlocBuilder<NavBarBloc, NavBarState>(
-          builder: (context, state) {
-            if (state.navbarItems == NavbarItems.contracts) {
-              return const ContractsScreen();
-            } else if (state.navbarItems == NavbarItems.history) {
-              return const HistoryScreen();
-            } else if (state.navbarItems == NavbarItems.neW) {
-              return const NewScreen();
-            } else if (state.navbarItems == NavbarItems.saved) {
-              return const SavedScreen();
-            } else if (state.navbarItems == NavbarItems.profile) {
-              return const ProfileScreen();
+                break;
+              case 1:
+                {
+                  BlocProvider.of<NavBarBloc>(context)
+                      .getNavBarItem(NavbarItems.history);
+                }
+                break;
+              case 2:
+                {
+                  BlocProvider.of<NavBarBloc>(context)
+                      .getNavBarItem(NavbarItems.neW);
+                }
+                break;
+              case 3:
+                {
+                  BlocProvider.of<NavBarBloc>(context)
+                      .getNavBarItem(NavbarItems.saved);
+                }
+                break;
+              case 4:
+                {
+                  BlocProvider.of<NavBarBloc>(context)
+                      .getNavBarItem(NavbarItems.profile);
+                }
+                break;
             }
-            return Container();
           },
-        ));
+        );
+      },
+    ), body: BlocBuilder<NavBarBloc, NavBarState>(
+      builder: (context, state) {
+        if (state.navbarItems == NavbarItems.contracts) {
+          return const ContractsScreen();
+        } else if (state.navbarItems == NavbarItems.history) {
+          return const HistoryScreen();
+        } else if (state.navbarItems == NavbarItems.neW) {
+          return const NewScreen();
+        } else if (state.navbarItems == NavbarItems.saved) {
+          return const SavedScreen();
+        } else if (state.navbarItems == NavbarItems.profile) {
+          return const ProfileScreen();
+        }
+        return Container();
+      },
+    ));
   }
 }

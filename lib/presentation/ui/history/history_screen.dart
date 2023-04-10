@@ -59,9 +59,7 @@ class _HistoryScreenState extends State<HistoryScreen> {
           (pickedDate.millisecondsSinceEpoch / 1000).ceil()));
     }
     setState(() {
-      // currentDate = pickedDate;
       from = Jiffy.parseFromDateTime(pickedDate!).format(pattern: 'dd.MM.yyyy');
-      // _bloc.add(FilterContractsEvent(statuses: statuses, startTime: startTime, endTime: endTime))
     });
     // }
   }
@@ -95,10 +93,8 @@ class _HistoryScreenState extends State<HistoryScreen> {
           (pickedDate.millisecondsSinceEpoch / 1000).ceil()));
     }
     setState(() {
-      // currentDate = pickedDate;
       to = Jiffy.parseFromDateTime(pickedDate!).format(pattern: 'dd.MM.yyyy');
     });
-    // }
   }
 
   @override
