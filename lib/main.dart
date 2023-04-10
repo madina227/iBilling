@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:i_billing/presentation/bloc/calendar/calendar_bloc.dart';
-import 'package:i_billing/presentation/bloc/filter_bloc/filter_bloc.dart';
-import 'package:i_billing/presentation/bloc/main_bloc/main_bloc.dart';
-import 'package:i_billing/presentation/bloc/navBar/nav_bar_bloc.dart';
-import 'package:i_billing/presentation/bloc/new_contract_bloc/new_contract_bloc.dart';
-import 'package:i_billing/presentation/bloc/new_invoice_bloc/new_invoice_bloc.dart';
-import 'package:i_billing/presentation/ui/contracts/filter_screen.dart';
-import 'package:i_billing/presentation/ui/contracts/single_item_screen.dart';
-import 'package:i_billing/presentation/ui/main_container.dart';
-import 'assets/colors.dart';
-import 'di/di.dart';
+import 'package:i_billing/assets/colors.dart';
+import 'package:i_billing/features/i_billing/presentation/contracts/bloc/calendar/calendar_bloc.dart';
+import 'package:i_billing/features/i_billing/presentation/contracts/pages/filter_screen.dart';
+import 'package:i_billing/features/i_billing/presentation/contracts/pages/single_item_screen.dart';
+import 'package:i_billing/features/i_billing/presentation/main/bloc/main_bloc/main_bloc.dart';
+import 'package:i_billing/features/i_billing/presentation/main/bloc/navBar/nav_bar_bloc.dart';
+import 'package:i_billing/features/i_billing/presentation/main/main_container.dart';
+import 'package:i_billing/features/i_billing/presentation/new/bloc/new_contract_bloc/new_contract_bloc.dart';
+import 'package:i_billing/features/i_billing/presentation/new/bloc/new_invoice_bloc/new_invoice_bloc.dart';
+import 'package:i_billing/injection_controller.dart';
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,10 +29,7 @@ class MyApp extends StatelessWidget {
           create: (context) => NavBarBloc(),
         ),
         BlocProvider<MainBloc>(create: (context) => MainBloc(di.get())),
-        BlocProvider<FilterBloc>(create: (context) => FilterBloc(di.get())),
-        BlocProvider<NewContractBloc>(create: (context) => NewContractBloc(di.get())),
-        BlocProvider<NewInvoiceBloc>(create: (context) => NewInvoiceBloc(di.get())),
-        BlocProvider<CalendarBloc>(create: (context) => CalendarBloc()),
+
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
