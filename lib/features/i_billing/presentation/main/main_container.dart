@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:i_billing/assets/Strings.dart';
 import 'package:i_billing/assets/colors.dart';
 import 'package:i_billing/assets/icons.dart';
+import 'package:i_billing/features/i_billing/presentation/contracts/bloc/filter_bloc/filter_bloc.dart';
 import 'package:i_billing/features/i_billing/presentation/contracts/contracts_screen.dart';
 import 'package:i_billing/features/i_billing/presentation/history/history_screen.dart';
 import 'package:i_billing/features/i_billing/presentation/main/bloc/navBar/nav_bar_bloc.dart';
@@ -12,7 +13,7 @@ import 'package:i_billing/features/i_billing/presentation/main/bloc/navBar/nav_b
 import 'package:i_billing/features/i_billing/presentation/new/new_screen.dart';
 import 'package:i_billing/features/i_billing/presentation/profile/profile_screen.dart';
 import 'package:i_billing/features/i_billing/presentation/saved/saved_screen.dart';
-
+import 'package:i_billing/injection_controller.dart';
 
 class MainContainer extends StatefulWidget {
   const MainContainer({Key? key}) : super(key: key);
@@ -109,7 +110,9 @@ class _MainContainerState extends State<MainContainer> {
         if (state.navbarItems == NavbarItems.contracts) {
           return const ContractsScreen();
         } else if (state.navbarItems == NavbarItems.history) {
-          return const HistoryScreen();
+          return BlocProvider<FilterBloc>(
+              create: (context) => FilterBloc(di.get()),
+              child: const HistoryScreen());
         } else if (state.navbarItems == NavbarItems.neW) {
           return const NewScreen();
         } else if (state.navbarItems == NavbarItems.saved) {

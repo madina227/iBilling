@@ -14,38 +14,31 @@ class FilterScreen extends StatefulWidget {
 }
 
 class _FilterScreenState extends State<FilterScreen> {
-  late FilterBloc _filterBloc;
-
-  @override
-  void initState() {
-    _filterBloc = BlocProvider.of<FilterBloc>(context);
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider<FilterBloc>(create: (context) => FilterBloc(di.get()),
-      child: Scaffold(
-        appBar: AppBar(
-          centerTitle: true,
-          title: const Text(
-            filtersText,
-            style: TextStyle(color: Colors.white),
-          ),
-          leading: IconButton(
-            icon: const Icon(
-              Icons.arrow_back_outlined,
-              color: Colors.white,
+    return BlocProvider<FilterBloc>(
+        create: (context) => FilterBloc(di.get()),
+        child: Scaffold(
+          appBar: AppBar(
+            centerTitle: true,
+            title: const Text(
+              filtersText,
+              style: TextStyle(color: Colors.white),
             ),
-            onPressed: () {
-              Navigator.pop(context);
-            },
+            leading: IconButton(
+              icon: const Icon(
+                Icons.arrow_back_outlined,
+                color: Colors.white,
+              ),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
           ),
-        ),
-        body: Column(
-          children: const [FilterHead(), Expanded(child: FilteredList())],
-        ),
-      ),
-    );
+          body: Column(
+            children: const [FilterHead(), Expanded(child: FilteredList())],
+          ),
+        ));
   }
 }

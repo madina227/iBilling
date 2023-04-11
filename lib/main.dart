@@ -29,7 +29,6 @@ class MyApp extends StatelessWidget {
           create: (context) => NavBarBloc(),
         ),
         BlocProvider<MainBloc>(create: (context) => MainBloc(di.get())),
-
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
